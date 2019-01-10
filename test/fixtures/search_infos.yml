@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  alias: MyString
+  last_name: MyString
+  gender: MyString
+  birth_year: 1
+  birth_month: 1
+  birth_day: 1
+  birth_state: MyString
+  mothers_first: MyString
+  mothers_last: MyString
+  fathers_first: MyString
+  fathers_last: MyString
+  last_year_seen: 1
+  they_are_to_you: MyString
+  you_are_to_them: MyString
+  reason_for_separation: MyString
+  account: one
+
+two:
+  first_name: MyString
+  alias: MyString
+  last_name: MyString
+  gender: MyString
+  birth_year: 1
+  birth_month: 1
+  birth_day: 1
+  birth_state: MyString
+  mothers_first: MyString
+  mothers_last: MyString
+  fathers_first: MyString
+  fathers_last: MyString
+  last_year_seen: 1
+  they_are_to_you: MyString
+  you_are_to_them: MyString
+  reason_for_separation: MyString
+  account: two

@@ -5,13 +5,14 @@ one:
   alias: MyString
   last_name: MyString
   gender: MyString
-  birth_month: 1
   birth_year: 1
+  birth_month: 1
   birth_day: 1
-  mothers_first_name: MyString
-  mothers_last_name: MyString
-  fathers_first_name: MyString
-  fathers_last_name: MyString
+  birth_state: MyString
+  mothers_first: MyString
+  mothers_last: MyString
+  fathers_first: MyString
+  fathers_last: MyString
   account: one
 
 two:
@@ -19,11 +20,12 @@ two:
   alias: MyString
   last_name: MyString
   gender: MyString
-  birth_month: 1
   birth_year: 1
+  birth_month: 1
   birth_day: 1
-  mothers_first_name: MyString
-  mothers_last_name: MyString
-  fathers_first_name: MyString
-  fathers_last_name: MyString
+  birth_state: MyString
+  mothers_first: MyString
+  mothers_last: MyString
+  fathers_first: MyString
+  fathers_last: MyString
   account: two
