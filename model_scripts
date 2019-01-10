@@ -4,6 +4,12 @@ rails generate model User_info first_name alias last_name gender birth_year:inte
 
 rails generate model Search_info first_name alias last_name gender birth_year:integer birth_month:integer birth_day:integer birth_state mothers_first mothers_last fathers_first fathers_last last_year_seen:integer they_are_to_you you_are_to_them reason_for_separation account:belongs_to
 
+add a column ----------------
+
+rails generate migration Add[NameOfOneTable]And[NameOfTheOtherTable]To[TheTableName] table_name:type
+
+rails db:migrate
+
 
 creating data ---------------
 account = Account.find(2)

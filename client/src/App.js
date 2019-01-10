@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route} from 'react-router-dom'
+import axios from 'axios'
 
 import './Reset.css'
 import './App.css'
@@ -18,48 +19,68 @@ import MatchedInfo from './components/MatchedInfo'
 import Clarification from './components/Clarification'
 import Closing from './components/Closing'
 import Exit from './components/Exit'
-
-
+import DisplayData from './components/DisplayData'
 
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      test: "it works",
       user: {
-        first_name:"",
-        alias:"",
-        last_name:"",
-        gender:"",
-        dob_month_year:"",
-        dob_day:"",
-        state:"",
-        mothers_first:"",
-        mothers_last:"",
-        fathers_first:"",
-        fathers_last:"",
+        email:"jimmy@mail.com",
+        first_name:"james",
+        alias:"jimmy",
+        last_name:"hoffa",
+        gender:"m",
+        birth_year:"1985",
+        birth_month:"2",
+        birth_day:"2",
+        birth_state:"guam",
+        mothers_first:"mom",
+        mothers_last:"parent",
+        fathers_first:"dad",
+        fathers_last:"parent",
       },
       searchInfo : {
-        first_name:"",
-        alias:"",
-        last_name:"",
-        gender:"",
-        dob_month_year:"",
-        dob_day:"",
-        state:"",
-        mothers_first:"",
-        mothers_last:"",
-        fathers_first:"",
-        fathers_last:"",
-        last_year_seen:"",
-        last_place_seen:"",
-        user_is_to_search:"",
-        search_is_to_user:"",
-        separation_because:"",
+        first_name:"amelia",
+        alias:"plane lady",
+        last_name:"earhart",
+        gender:"f",
+        birth_year:"1912",
+        birth_month:"3",
+        birth_day:"3",
+        birth_state:"micronesia",
+        mothers_first:"mom",
+        mothers_last:"parent",
+        fathers_first:"dad",
+        fathers_last:"parent",
+        last_year_seen:"1945",
+        they_are_to_you:"sister",
+        you_are_to_them:"brother",
+        reason_for_separation:"unknown",
       }
     }
   }
+
+   getData = () => {
+    axios.get("/api").then(response => {
+      console.log(response)
+      // this.setState({
+      //   locations: response.data.locations
+      // })
+    })
+    
+  }
+
+  
+
+
   render() {
+
+    // {(props) => <Splash {...props} test={this.state.test}/>}
+    // console.log(getData)
+    this.getData()
     return (
       <>
         <Router>
@@ -78,6 +99,7 @@ class App extends Component {
           <Route path="/clarify" exact component={Clarification} />
           <Route path="/closing" component={Closing} />
           <Route path="/exit" component={Exit} />
+          <Route path="/display" component={(props) => <DisplayData {...props} userData={this.state.user} />} />
           </>
         </Router>
       </>
