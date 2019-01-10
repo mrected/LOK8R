@@ -1,4 +1,4 @@
 class Account < ApplicationRecord
-    has_many :search_info
-    has_many :user_info
+    has_many :search_infos
+    has_many :user_infos
 end
