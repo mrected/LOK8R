@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  alias: MyString
+  last_name: MyString
+  gender: MyString
+  birth_month: 1
+  birth_year: 1
+  birth_day: 1
+  mothers_first_name: MyString
+  mothers_last_name: MyString
+  fathers_first_name: MyString
+  fathers_last_name: MyString
+  account: one
+
+two:
+  first_name: MyString
+  alias: MyString
+  last_name: MyString
+  gender: MyString
+  birth_month: 1
+  birth_year: 1
+  birth_day: 1
+  mothers_first_name: MyString
+  mothers_last_name: MyString
+  fathers_first_name: MyString
+  fathers_last_name: MyString
+  account: two
