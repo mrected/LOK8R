@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/api/user_infos', to: 'api/user_infos#index'
+  get 'user_info', to: 'user_info#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   if Rails.env.production?
     CLIENT_HTML = File.read(Rails.root.join('public/index.html'))

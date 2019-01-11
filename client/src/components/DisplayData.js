@@ -12,6 +12,10 @@ class DisplayData extends Component {
         <img src={logo} className="main-logo" alt="logo" />
         <p>display data</p>
         <ul>
+            {this.props.userData.map(data => {
+                return `<li>${data[Object.keys]}</li>`
+                }
+            )}
         <li>{this.props.userData.email}</li>
         <li>{this.props.userData.first_name}</li>
         <li>{this.props.userData.alias}</li>
