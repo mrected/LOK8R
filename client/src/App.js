@@ -73,7 +73,7 @@ class App extends Component {
 
   
   saveUserChanges = (userChanges) => {
-    this.setState(update(this.state, { $merge: { user: userChanges }}))
+    this.setState({ user: update(this.state.user, { $merge: userChanges })})
   }
 
   render() {
@@ -92,7 +92,7 @@ class App extends Component {
           <Route path="/enter_info1" render={(props) => <EnterInfo1 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} />
           <Route path="/enter_info2" render={(props) => <EnterInfo2 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} />
           <Route path="/search_info_instruction" component={SearchInfoInstruction} />
-          <Route path="/search_info1" component={SearchInfo1} />
+          <Route path="/search_info1" render={(props) => <SearchInfo2 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
           <Route path="/search_info2" component={SearchInfo2} />
           <Route path="/search_info3" component={SearchInfo3} />
           <Route path="/matches" exact component={MatchedInfo} />
