@@ -33,15 +33,15 @@ class EnterInfo1 extends Component {
             <img src={logo} className="main-logo" alt="logo" />
             <p>enter your information</p>
             <form id="user" name="userOne">
-            <div><label>first name: </label><input type="text" name="first_name" size="20" defaultValue={this.props.user.first_name} required /></div>
-            <div><label>nickname/alias: </label><input type="text" name="nickname" size="20" defaultValue={this.props.user.nickname} required/></div>
-            <div><label>last name: </label><input type="text" name="last_name" size="20" defaultValue={this.props.user.last_name} required /></div>
+            <div><label htmlFor="first_name">first name: </label><input type="text" name="first_name" size="20" defaultValue={this.props.user.first_name} required /></div>
+            <div><label htmlFor="nickname">nickname/alias: </label><input type="text" name="nickname" size="20" defaultValue={this.props.user.nickname} required/></div>
+            <div><label htmlFor="last_name">last name: </label><input type="text" name="last_name" size="20" defaultValue={this.props.user.last_name} required /></div>
             <div className="gender-radio">
               <label>gender: </label>
               <label className="small-label" htmlFor="m">male</label>
               <input type="radio" name="gender" value="m" id="m" checked={this.props.user.gender === "m"} ></input>
               <label className="small-label" htmlFor="f">female</label>
-              <input type="radio" name="gender" value="f" id="f" defaultValue={this.props.user.gender} ></input><br />
+              <input type="radio" name="gender" value="f" id="f" checked={this.props.user.gender === "f"} ></input><br />
             </div>
             <div>
               <label htmlFor="dob_year_month_year">dob <br /> <span className="small-label">month/year: </span></label><input id="dob_year_month_year" type="month" name="dob_month_year"  defaultValue={this.props.user.dob_year_month} />
