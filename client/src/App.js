@@ -31,7 +31,7 @@ class App extends Component {
         first_name:"",
         alias:"",
         last_name:"",
-        gender:"",
+        gender:"m",
         dob_month_year:"",
         dob_day:"",
         state:"",
@@ -41,22 +41,22 @@ class App extends Component {
         fathers_last:"",
       },
       searchInfo : {
-        first_name:"amelia",
-        alias:"plane lady",
-        last_name:"earhart",
-        gender:"f",
-        birth_year:"1912",
-        birth_month:"3",
-        birth_day:"3",
-        birth_state:"micronesia",
-        mothers_first:"mom",
-        mothers_last:"parent",
-        fathers_first:"dad",
-        fathers_last:"parent",
-        last_year_seen:"1945",
-        they_are_to_you:"sister",
-        you_are_to_them:"brother",
-        reason_for_separation:"unknown",
+        first_name:"",
+        alias:"",
+        last_name:"",
+        gender:"m",
+        birth_year:"",
+        birth_month:"",
+        birth_day:"",
+        birth_state:"",
+        mothers_first:"",
+        mothers_last:"",
+        fathers_first:"",
+        fathers_last:"",
+        last_year_seen:"",
+        they_are_to_you:"",
+        you_are_to_them:"",
+        reason_for_separation:"",
       }
     }
   }
@@ -76,6 +76,10 @@ class App extends Component {
     this.setState({ user: update(this.state.user, { $merge: userChanges })})
   }
 
+  saveSearchChanges = (searchChanges) => {
+    this.setState({ searchInfo: update(this.state.searchInfo, { $merge: searchChanges })})
+  }
+
   render() {
 
     // {(props) => <Splash {...props} test={this.state.test}/>}
@@ -92,7 +96,7 @@ class App extends Component {
           <Route path="/enter_info1" render={(props) => <EnterInfo1 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} />
           <Route path="/enter_info2" render={(props) => <EnterInfo2 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} />
           <Route path="/search_info_instruction" component={SearchInfoInstruction} />
-          <Route path="/search_info1" render={(props) => <SearchInfo2 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
+          <Route path="/search_info1" render={(props) => <SearchInfo1 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
           <Route path="/search_info2" component={SearchInfo2} />
           <Route path="/search_info3" component={SearchInfo3} />
           <Route path="/matches" exact component={MatchedInfo} />

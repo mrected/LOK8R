@@ -12,9 +12,9 @@ class EnterInfo1 extends Component {
     const userChanges = {
       first_name: form.first_name.value,
       nickname: form.nickname.value,
-      ast_name: form.last_name.value,
+      last_name: form.last_name.value,
       gender: form.gender.value,
-      dob_month_year: form.dob_month.value,
+      dob_month_year: form.dob_month_year.value,
       dob_day: form.dob_day,
     }
 
@@ -39,12 +39,12 @@ class EnterInfo1 extends Component {
             <div className="gender-radio">
               <label>gender: </label>
               <label className="small-label" htmlFor="m">male</label>
-              <input type="radio" name="gender" value="m" id="m" defaultValue={this.props.user.gender} ></input>
+              <input type="radio" name="gender" value="m" id="m" checked={this.props.user.gender === "m"} ></input>
               <label className="small-label" htmlFor="f">female</label>
               <input type="radio" name="gender" value="f" id="f" defaultValue={this.props.user.gender} ></input><br />
             </div>
             <div>
-              <label htmlFor="dob_year_month">dob <br /> <span className="small-label">month/year: </span></label><input id="dob_year_month" type="month" name="dob_month"  defaultValue={this.props.user.dob_year_month} />
+              <label htmlFor="dob_year_month_year">dob <br /> <span className="small-label">month/year: </span></label><input id="dob_year_month_year" type="month" name="dob_month_year"  defaultValue={this.props.user.dob_year_month} />
               <label htmlFor="dob_day"> <span className="small-label"><br />day: </span></label><input id="dob_day" type="number" min="1" max="31"  defaultValue={this.props.user.dob_day} />
             </div>
             </form>

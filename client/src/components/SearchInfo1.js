@@ -12,9 +12,9 @@ class SearchInfo1 extends Component {
     const searchChanges = {
       first_name: form.first_name.value,
       nickname: form.nickname.value,
-      ast_name: form.last_name.value,
+      last_name: form.last_name.value,
       gender: form.gender.value,
-      dob_month_year: form.dob_month.value,
+      dob_month_year: form.dob_month_year.value,
       dob_day: form.dob_day,
     }
 
@@ -32,19 +32,19 @@ class SearchInfo1 extends Component {
             <img src={logo} className="main-logo" alt="logo" />
             <p>who you're looking for</p>
             <form id="searchInfo">
-              <div><label>their first name: </label><input type="text" name="search-first-name" size="20" defaultValue={this.props.searchInfo.first_name}  /></div>
-              <div><label>nickname/alias: </label><input type="text" name="search-nickname" size="20" defaultValue={this.props.searchInfo.nickname}  /></div>
-              <div><label>their last name: </label><input type="text" name="search-last-name" size="20" defaultValue={this.props.searchInfo.last_name}  /></div>
+              <div><label>their first name: </label><input type="text" name="first_name" size="20" defaultValue={this.props.searchInfo.first_name}  /></div>
+              <div><label>nickname/alias: </label><input type="text" name="nickname" size="20" defaultValue={this.props.searchInfo.nickname}  /></div>
+              <div><label>their last name: </label><input type="text" name="last_name" size="20" defaultValue={this.props.searchInfo.last_name}  /></div>
               <div className="gender-radio">
                 <label>their gender: </label>
                 <label className="small-label" for="m">male</label>
-                <input type="radio" name="search-gender" value="m" id="m" defaultValue={this.props.searchInfo.gender}></input>
+                <input type="radio" name="gender"  id="m" defaultValue={this.props.searchInfo.gender}></input>
                 <label className="small-label" for="f">female</label>
-                <input type="radio" name="search-gender" value="f" id="f" defaultValue={this.props.searchInfo.gender}></input>
+                <input type="radio" name="gender"  id="f" defaultValue={this.props.searchInfo.gender}></input>
               </div>
               <div>
-                <label for="search-dob-year-month">dob <br /> month/year: </label><input id="search-dob" type="month" name="search-dob"  defaultValue={this.props.searchInfo.dob_month_year}/>
-                <label for="search-dob-day"> day: </label><input id="search-dob-day" type="number" min="1" max="31" defaultValue={this.props.searchInfo.dob_day} />
+                <label htmlFor="dob_month_year">dob <br /> month/year: </label><input id="dob_month_year" type="month" name="search-dob"  defaultValue={this.props.searchInfo.dob_month_year}/>
+                <label htmlFor="dob_day"> day: </label><input id="dob_day" type="number" min="1" max="31" defaultValue={this.props.searchInfo.dob_day} />
               </div>
             </form>
           </section>
