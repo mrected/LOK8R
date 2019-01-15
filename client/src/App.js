@@ -31,7 +31,7 @@ class App extends Component {
         first_name:"",
         alias:"",
         last_name:"",
-        gender:"m",
+        gender:"",
         dob_month_year:"",
         dob_day:"",
         state:"",
@@ -44,11 +44,9 @@ class App extends Component {
         first_name:"",
         alias:"",
         last_name:"",
-        gender:"m",
-        birth_year:"",
-        birth_month:"",
-        birth_day:"",
-        birth_state:"",
+        gender:"",
+        dob_day:"",
+        state:"",
         mothers_first:"",
         mothers_last:"",
         fathers_first:"",
@@ -97,8 +95,8 @@ class App extends Component {
           <Route path="/enter_info2" render={(props) => <EnterInfo2 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} />
           <Route path="/search_info_instruction" component={SearchInfoInstruction} />
           <Route path="/search_info1" render={(props) => <SearchInfo1 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
-          <Route path="/search_info2" component={SearchInfo2} />
-          <Route path="/search_info3" component={SearchInfo3} />
+          <Route path="/search_info2" render={(props) => <SearchInfo2 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
+          <Route path="/search_info3" render={(props) => <SearchInfo3 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
           <Route path="/matches" exact component={MatchedInfo} />
           <Route path="/clarify" exact component={Clarification} />
           <Route path="/closing" component={Closing} />

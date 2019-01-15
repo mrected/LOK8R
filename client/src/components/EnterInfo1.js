@@ -11,7 +11,7 @@ class EnterInfo1 extends Component {
 
     const userChanges = {
       first_name: form.first_name.value,
-      nickname: form.nickname.value,
+      alias: form.alias.value,
       last_name: form.last_name.value,
       gender: form.gender.value,
       dob_month_year: form.dob_month_year.value,
@@ -21,7 +21,7 @@ class EnterInfo1 extends Component {
     this.props.saveUserChanges(userChanges)
 
     // Go to the next page
-    this.props.history.push('/enter_info2')
+    event.target.id === "forward" ? this.props.history.push('/enter_info2') : this.props.history.push('/enter_info_instruction')
   }
 
   render() {
@@ -34,7 +34,7 @@ class EnterInfo1 extends Component {
             <p>enter your information</p>
             <form id="user" name="userOne">
             <div><label htmlFor="first_name">first name: </label><input type="text" name="first_name" size="20" defaultValue={this.props.user.first_name} required /></div>
-            <div><label htmlFor="nickname">nickname/alias: </label><input type="text" name="nickname" size="20" defaultValue={this.props.user.nickname} required/></div>
+            <div><label htmlFor="alias">nickname/alias: </label><input type="text" name="alias" size="20" defaultValue={this.props.user.alias} required/></div>
             <div><label htmlFor="last_name">last name: </label><input type="text" name="last_name" size="20" defaultValue={this.props.user.last_name} required /></div>
             <div className="gender-radio">
               <label>gender: </label>
@@ -52,8 +52,8 @@ class EnterInfo1 extends Component {
           <footer>
             <p>page 1 - your info</p>
             <nav className="footer-nav">
-              <Link to={`enter_info_instruction`} className="small-btn"> &lt;- back</Link>
-              <a href="#" className="small-btn" onClick={this._save}>next -&gt;</a>
+              <a href="#" className="small-btn" onClick={this._save}> &lt;- back</a>
+              <a href="#" id="forward" className="small-btn" onClick={this._save}>next -&gt;</a>
             </nav>
           </footer>
         </div>

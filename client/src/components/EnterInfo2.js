@@ -20,7 +20,7 @@ class EnterInfo2 extends Component {
     this.props.saveUserChanges(userChanges)
 
     // Go to the next page
-    this.props.history.push('/search_info_instruction')
+    event.target.id === "forward" ? this.props.history.push('/search_info_instruction') : this.props.history.push('/enter_info1')
   }
 
   render() {
@@ -48,7 +48,7 @@ class EnterInfo2 extends Component {
                   <option value="Hawaii" selected={this.props.user.state === "Hawaii"}>Hawaii</option>
                   <option value="Idaho" selected={this.props.user.state === "Idaho"}>Idaho</option>
                   <option value="Illinois" selected={this.props.user.state === "Illinois"}>Illinois</option>
-                  <option value="Indiana" selected={this.props.user.state === "Indiana"}>Ind</option>
+                  <option value="Indiana" selected={this.props.user.state === "Indiana"}>Indiana</option>
                   <option value="Iowa" selected={this.props.user.state === "Iowa"}>Iowa</option>
                   <option value="Kansas" selected={this.props.user.state === "Kansas"}>Kansas</option>
                   <option value="Kentucky" selected={this.props.user.state === "Kentucky"}>Kentucky</option>
@@ -96,8 +96,8 @@ class EnterInfo2 extends Component {
             <footer>
               <p className="page">page 2 - your info</p>
               <nav className="footer-nav">
-                <Link to={`enter_info1`} className="small-btn"> &lt;- back</Link>
-                <a href="#" className="small-btn" onClick={this._save}>next -&gt;</a>
+              <a href="#" className="small-btn" onClick={this._save}> &lt;- back</a>
+              <a href="#" id="forward" className="small-btn" onClick={this._save}>next -&gt;</a>
               </nav>
             </footer>
         </div>

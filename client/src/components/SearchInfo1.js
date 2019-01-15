@@ -21,7 +21,7 @@ class SearchInfo1 extends Component {
     this.props.saveSearchChanges(searchChanges)
 
     // Go to the next page
-    this.props.history.push('/search_info2')
+    event.target.id === "forward" ? this.props.history.push('/search_info2') : this.props.history.push('/search_info_instruction')
   }
 
   render() {
@@ -38,9 +38,9 @@ class SearchInfo1 extends Component {
               <div className="gender-radio">
                 <label>their gender: </label>
                 <label className="small-label" for="m">male</label>
-                <input type="radio" name="gender"  id="m" defaultValue={this.props.searchInfo.gender}></input>
+                <input type="radio" name="gender" value="m" id="m" defaultValue={this.props.searchInfo.gender} checked={this.props.searchInfo.gender === "m"} ></input>
                 <label className="small-label" for="f">female</label>
-                <input type="radio" name="gender"  id="f" defaultValue={this.props.searchInfo.gender}></input>
+                <input type="radio" name="gender" value="f" id="f" defaultValue={this.props.searchInfo.gender} checked={this.props.searchInfo.gender === "f"} ></input>
               </div>
               <div>
                 <label htmlFor="dob_month_year">dob <br /> month/year: </label><input id="dob_month_year" type="month" name="search-dob"  defaultValue={this.props.searchInfo.dob_month_year}/>
@@ -51,8 +51,8 @@ class SearchInfo1 extends Component {
           <footer>
           <p className="page">page 1 - search info</p>
             <nav className="footer-nav">
-              <Link to={`search_info_instruction`} className="small-btn"> &lt;- back</Link>
-              <a href="#" className="small-btn" onClick={this._save}>next -&gt;</a>
+              <a href="#" className="small-btn" onClick={this._save}> &lt;- back</a>
+              <a href="#" id="forward" className="small-btn" onClick={this._save}>next -&gt;</a>
             </nav>
           </footer>
         </div>
