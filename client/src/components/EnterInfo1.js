@@ -4,9 +4,24 @@ import logo from '../images/main-logo.svg'
 
 class EnterInfo1 extends Component {
 
-  getInfo = event => {
+  _save = (event) => {
     event.preventDefault()
-    console.log(event)
+
+    const form=document.getElementById("user")
+
+    const userChanges = {
+      first_name: form.first_name.value,
+      nickname: form.nickname.value,
+      ast_name: form.last_name.value,
+      gender: form.gender.value,
+      dob_month_year: form.dob_month.value,
+      dob_day: form.dob_day,
+    }
+
+    this.props.saveUserChanges(userChanges)
+
+    // Go to the next page
+    this.props.history.push('/enter_info2')
   }
 
   render() {
@@ -17,28 +32,28 @@ class EnterInfo1 extends Component {
           <section className="enter-info">
             <img src={logo} className="main-logo" alt="logo" />
             <p>enter your information</p>
-            <form name="userOne">
-            <div><label>first name: </label><input type="text" name="user-first-name" size="20" required /></div>
-            <div><label>nickname/alias: </label><input type="text" name="user-nickname" size="20" /></div>
-            <div><label>last name: </label><input type="text" name="user-last-name" size="20" required /></div>
+            <form id="user" name="userOne">
+            <div><label>first name: </label><input type="text" name="first_name" size="20" defaultValue={this.props.user.first_name} required /></div>
+            <div><label>nickname/alias: </label><input type="text" name="nickname" size="20" defaultValue={this.props.user.nickname} required/></div>
+            <div><label>last name: </label><input type="text" name="last_name" size="20" defaultValue={this.props.user.last_name} required /></div>
             <div className="gender-radio">
               <label>gender: </label>
-              <label className="small-label" for="m">male</label>
-              <input type="radio" name="user-gender" value="m" id="m"></input>
-              <label className="small-label" for="f">female</label>
-              <input type="radio" name="user-gender" value="f" id="f"></input><br />
+              <label className="small-label" htmlFor="m">male</label>
+              <input type="radio" name="gender" value="m" id="m" defaultValue={this.props.user.gender} ></input>
+              <label className="small-label" htmlFor="f">female</label>
+              <input type="radio" name="gender" value="f" id="f" defaultValue={this.props.user.gender} ></input><br />
             </div>
             <div>
-              <label for="user-dob-year-month">dob <br /> <span className="small-label">month/year: </span></label><input id="user-dob" type="month" name="user-dob" />
-              <label for="user-dob-day"> <span className="small-label"><br />day: </span></label><input id="user-dob-day" type="number" min="1" max="31" />
+              <label htmlFor="dob_year_month">dob <br /> <span className="small-label">month/year: </span></label><input id="dob_year_month" type="month" name="dob_month"  defaultValue={this.props.user.dob_year_month} />
+              <label htmlFor="dob_day"> <span className="small-label"><br />day: </span></label><input id="dob_day" type="number" min="1" max="31"  defaultValue={this.props.user.dob_day} />
             </div>
             </form>
           </section>
           <footer>
             <p>page 1 - your info</p>
             <nav className="footer-nav">
-              <Link to={`enter_info_instruction`} className="small-btn" onClick={this.linkTest}> &lt;- back</Link>
-              <Link to={`enter_info2`} className="small-btn">next -&gt;</Link>
+              <Link to={`enter_info_instruction`} className="small-btn"> &lt;- back</Link>
+              <a href="#" className="small-btn" onClick={this._save}>next -&gt;</a>
             </nav>
           </footer>
         </div>

@@ -5,6 +5,7 @@ import axios from 'axios'
 import './Reset.css'
 import './App.css'
 
+import update from 'immutability-helper'
 
 import Splash from './components/Splash'
 import Login from './components/LogIn'
@@ -21,27 +22,24 @@ import Closing from './components/Closing'
 import Exit from './components/Exit'
 import DisplayData from './components/DisplayData'
 
-
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      test: "it works",
-      user: [
-        {email:"jimmy@mail.com"},
-        {first_name:"james"},
-        {alias:"jimmy"},
-        {last_name:"hoffa"},
-        {gender:"m"},
-        {birth_year:"1985"},
-        {birth_month:"2"},
-        {birth_day:"2"},
-        {birth_state:"guam"},
-        {mothers_first:"mom"},
-        {mothers_last:"parent"},
-        {fathers_first:"dad"},
-        {fathers_last:"parent"},
-      ],
+      user: {
+        email:"jimmy@mail.com",
+        first_name:"",
+        alias:"",
+        last_name:"",
+        gender:"",
+        dob_month_year:"",
+        dob_day:"",
+        state:"",
+        mothers_first:"",
+        mothers_last:"",
+        fathers_first:"",
+        fathers_last:"",
+      },
       searchInfo : {
         first_name:"amelia",
         alias:"plane lady",
@@ -74,7 +72,9 @@ class App extends Component {
   }
 
   
-
+  saveUserChanges = (userChanges) => {
+    this.setState(update(this.state, { $merge: { user: userChanges }}))
+  }
 
   render() {
 
@@ -89,8 +89,8 @@ class App extends Component {
           <Route path="/" exact component={Splash} />
           <Route path="/login" component={Login} />
           <Route path="/enter_info_instruction" component={EnterInfoInstruction} />
-          <Route path="/enter_info1" component={EnterInfo1} />
-          <Route path="/enter_info2" component={EnterInfo2} />
+          <Route path="/enter_info1" render={(props) => <EnterInfo1 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} />
+          <Route path="/enter_info2" render={(props) => <EnterInfo2 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} />
           <Route path="/search_info_instruction" component={SearchInfoInstruction} />
           <Route path="/search_info1" component={SearchInfo1} />
           <Route path="/search_info2" component={SearchInfo2} />
