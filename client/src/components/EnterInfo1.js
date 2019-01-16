@@ -45,7 +45,7 @@ class EnterInfo1 extends Component {
             </div>
             <div>
               <label htmlFor="dob_year_month_year">dob <br /> <span className="small-label">month/year: </span></label><input id="dob_year_month_year" type="month" name="dob_month_year"  defaultValue={this.props.user.dob_year_month} />
-              <label htmlFor="dob_day"> <span className="small-label"><br />day: </span></label><input id="dob_day" type="number" min="1" max="31"  defaultValue={this.props.user.dob_day} />
+              <label htmlFor="dob_day"> <span className="small-label"><br />day: </span></label><input id="dob_day" type="number" min="1" max="31"  defaultValue={this.props.user.dob_day.value} />
             </div>
             </form>
           </section>

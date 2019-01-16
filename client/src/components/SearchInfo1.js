@@ -44,7 +44,7 @@ class SearchInfo1 extends Component {
               </div>
               <div>
                 <label htmlFor="dob_month_year">dob <br /> month/year: </label><input id="dob_month_year" type="month" name="search-dob"  defaultValue={this.props.searchInfo.dob_month_year}/>
-                <label htmlFor="dob_day"> day: </label><input id="dob_day" type="number" min="1" max="31" defaultValue={this.props.searchInfo.dob_day} />
+                <label htmlFor="dob_day"> day: </label><input id="dob_day" type="number" min="1" max="31" defaultValue={this.props.searchInfo.dob_day.value} />
               </div>
             </form>
           </section>
