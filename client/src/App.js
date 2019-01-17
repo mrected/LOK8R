@@ -55,19 +55,28 @@ class App extends Component {
         they_are_to_you:"",
         you_are_to_them:"",
         reason_for_separation:"",
+      },
+      results : {
+        first_name:"selma",
+        alias:"",
+        last_name:"hayek",
+        gender:"f",
+        birth_year:1972,
+        birth_month:3,
+        birth_state:"nm",
       }
     }
   }
 
-   getData = () => {
-    axios.get("/api").then(response => {
-      console.log(response)
-      // this.setState({
-      //   locations: response.data.locations
-      // })
-    })
+  //  getData = () => {
+  //   axios.get("/api").then(response => {
+  //     console.log(response)
+  //     // this.setState({
+  //     //   locations: response.data.locations
+  //     // })
+  //   })
     
-  }
+  // }
 
   
   saveUserChanges = (userChanges) => {
@@ -82,7 +91,7 @@ class App extends Component {
 
     // {(props) => <Splash {...props} test={this.state.test}/>}
     // console.log(getData)
-    this.getData()
+    // this.getData()
     return (
       <>
         <Router>
@@ -98,7 +107,7 @@ class App extends Component {
           <Route path="/search_info2" render={(props) => <SearchInfo2 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
           <Route path="/search_info3" render={(props) => <SearchInfo3 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
           <Route path="/matches" exact component={MatchedInfo} />
-          <Route path="/clarify" exact component={(props) => <Clarification {...props} searchInfo={this.state.searchInfo} />} />
+          <Route path="/clarify" exact component={(props) => <Clarification {...props} results={this.state.results} />} />
           <Route path="/closing" component={Closing} />
           <Route path="/exit" component={Exit} />
           <Route path="/display" component={(props) => <DisplayData {...props} search={this.state.searchInfo} />} />
