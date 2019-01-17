@@ -100,6 +100,12 @@ class SearchInfo2 extends Component {
                   <option value="father" selected={this.props.searchInfo.they_are_to_you === "father"} >father</option>
                   <option value="brother" selected={this.props.searchInfo.they_are_to_you === "brother"} >brother</option>
                   <option value="sister" selected={this.props.searchInfo.they_are_to_you === "sister"} >sister</option>
+                  <option value="son" selected={this.props.searchInfo.they_are_to_you === "son"} >son</option>
+                  <option value="daughter" selected={this.props.searchInfo.they_are_to_you === "daughter"} >daughter</option>
+                  <option value="neice" selected={this.props.searchInfo.they_are_to_you === "neice"} >neice</option>
+                  <option value="nephew" selected={this.props.searchInfo.they_are_to_you === "nephew"} >nephew</option>
+                  <option value="aunt" selected={this.props.searchInfo.they_are_to_you === "aunt"} >aunt</option>
+                  <option value="uncle" selected={this.props.searchInfo.they_are_to_you === "uncle"} >uncle</option>
                   <option value="friend" selected={this.props.searchInfo.they_are_to_you === "friend"} >friend</option>
                   <option value="other - family member" selected={this.props.searchInfo.they_are_to_you === "other - family member"} >other - family member</option>
                   <option value="other - not related" selected={this.props.searchInfo.they_are_to_you === "other - not related"} >other - not related</option>
@@ -109,10 +115,16 @@ class SearchInfo2 extends Component {
                 <label htmlFor="you_are_to_them">they are your: </label>
                 <select id="you_are_to_them" selected={this.props.searchInfo.you_are_to_them}>
                   <option>- choose one -</option>
-                  <option value="mother" selected={this.props.searchInfo.you_are_to_them === "mother"} >mother</option>
+                  <option value="mother" selected={this.props.searchInfo.they_are_you_are_to_themto_you === "mother"} >mother</option>
                   <option value="father" selected={this.props.searchInfo.you_are_to_them === "father"} >father</option>
                   <option value="brother" selected={this.props.searchInfo.you_are_to_them === "brother"} >brother</option>
                   <option value="sister" selected={this.props.searchInfo.you_are_to_them === "sister"} >sister</option>
+                  <option value="son" selected={this.props.searchInfo.you_are_to_them === "son"} >son</option>
+                  <option value="daughter" selected={this.props.searchInfo.you_are_to_them === "daughter"} >daughter</option>
+                  <option value="neice" selected={this.props.searchInfo.you_are_to_them === "neice"} >neice</option>
+                  <option value="nephew" selected={this.props.searchInfo.you_are_to_them === "nephew"} >nephew</option>
+                  <option value="aunt" selected={this.props.searchInfo.you_are_to_them === "aunt"} >aunt</option>
+                  <option value="uncle" selected={this.props.searchInfo.you_are_to_them === "uncle"} >uncle</option>
                   <option value="friend" selected={this.props.searchInfo.you_are_to_them === "friend"} >friend</option>
                   <option value="other - family member" selected={this.props.searchInfo.you_are_to_them === "other - family member"} >other - family member</option>
                   <option value="other - not related" selected={this.props.searchInfo.you_are_to_them === "other - not related"} >other - not related</option>

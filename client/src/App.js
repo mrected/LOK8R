@@ -27,7 +27,7 @@ class App extends Component {
     super(props)
     this.state = {
       user: {
-        email:"jimmy@mail.com",
+        email:"",
         first_name:"",
         alias:"",
         last_name:"",
@@ -98,10 +98,10 @@ class App extends Component {
           <Route path="/search_info2" render={(props) => <SearchInfo2 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
           <Route path="/search_info3" render={(props) => <SearchInfo3 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
           <Route path="/matches" exact component={MatchedInfo} />
-          <Route path="/clarify" exact component={Clarification} />
+          <Route path="/clarify" exact component={(props) => <Clarification {...props} searchInfo={this.state.searchInfo} />} />
           <Route path="/closing" component={Closing} />
           <Route path="/exit" component={Exit} />
-          <Route path="/display" component={(props) => <DisplayData {...props} userData={this.state.user} />} />
+          <Route path="/display" component={(props) => <DisplayData {...props} search={this.state.searchInfo} />} />
           </>
         </Router>
       </>

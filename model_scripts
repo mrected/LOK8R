@@ -12,13 +12,40 @@ rails db:migrate
 
 
 creating data ---------------
+
+Account.create(email: "test1@gmail.com")
+
 account = Account.find(2)
 
-Account.find(1).user_infos.create(first_name: "James", alias: "Jimmy", last_name: "Hoffa", gender: "m", birth_year: 1913, birth_month: 2, birth_day: 14, birth_state: "Indiana", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe") 
+Account.find(1).user_infos.update(first_name: "James", alias: "Jimmy", last_name: "Hoffa", gender: "m", birth_year: 1913, birth_month: 2, birth_day: 14, birth_state: "Indiana", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe") 
 
-Account.find(2).user_infos.create(first_name: "Amelia", alias: "", last_name: "Earhart", gender: "f", birth_year: 1897, birth_month: 7, birth_day: 24, birth_state: "Kansas", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe") 
+Account.find(2).user_infos.update(first_name: "Amelia", alias: "", last_name: "Earhart", gender: "f", birth_year: 1897, birth_month: 7, birth_day: 24, birth_state: "Kansas", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe") 
 
-Account.find(1).search_infos.create(first_name: "James", alias: "Jimmy", last_name: "Hoffa", gender: "m", birth_year: 1913, birth_month: 2, birth_day: 14, birth_state: "Indiana", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe", last_year_seen: 1937, they_are_to_you: "brother", you_are_to_them: "sister", reason_for_separation: "unknown")
+Account.find(2).search_infos.update(first_name: "James", alias: "Jimmy", last_name: "Hoffa", gender: "m", birth_year: 1913, birth_month: 2, birth_day: 14, birth_state: "Indiana", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe", last_year_seen: 1937, they_are_to_you: "brother", you_are_to_them: "sister", reason_for_separation: "unknown")
 
-Account.find(2).search_infos.create(first_name: "Amelia", alias: "", last_name: "Earhart", gender: "f", birth_year: 1897, birth_month: 7, birth_day: 24, birth_state: "Kansas", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe", last_year_seen: 1937, they_are_to_you: "sister", you_are_to_them: "brother", reason_for_separation: "unknown")
+Account.find(1).search_infos.update(first_name: "Amelia", alias: "", last_name: "Earhart", gender: "f", birth_year: 1897, birth_month: 7, birth_day: 24, birth_state: "Kansas", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe", last_year_seen: 1937, they_are_to_you: "sister", you_are_to_them: "brother", reason_for_separation: "unknown")
 
+
+
+Test Data---------------------
+
+-- matches fields with jimmy in search, none in who jimmy is searching 
+
+Account.find(3).user_infos.create(first_name: "James", alias: "Jimmy", last_name: "Hoffa", gender: "m", birth_year: 1913, birth_month: 2, birth_day: 14, birth_state: "Indiana", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe") 
+
+Account.find(3).search_infos.create(first_name: "db", alias: "unknown", last_name: "cooper", gender: "m", birth_year: 1985, birth_month: 5, birth_day: 10, birth_state: "alaska", mothers_first: "mom", mothers_last: "parent", fathers_first: "dad", fathers_last: "parent", last_year_seen: 2018, they_are_to_you: "uncle", you_are_to_them: "nephew", reason_for_separation: "volcano")
+
+
+-- matches no fields with jimmy - is who jimmy is searching for
+
+Account.find(4).user_infos.create(first_name: "April", alias: "Ape", last_name: "Oneil", gender: "f", birth_year: 1987, birth_month: 10, birth_day: 12, birth_state: "New York", mothers_first: "momma", mothers_last: "momlast", fathers_first: "daddy", fathers_last: "dadlast") 
+
+Account.find(4).search_infos.create(first_name: "Amelia", alias: "", last_name: "Earhart", gender: "f", birth_year: 1897, birth_month: 7, birth_day: 24, birth_state: "Kansas", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe", last_year_seen: 1937, they_are_to_you: "sister", you_are_to_them: "brother", reason_for_separation: "unknown")
+
+
+
+-- matches all fields with jimmy - 2 of who jimmy is searching for
+
+Account.find(5).user_infos.create(first_name: "James", alias: "Jimmy", last_name: "Hoffa", gender: "m", birth_year: 1913, birth_month: 2, birth_day: 14, birth_state: "Indiana", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe") 
+
+Account.find(5).search_infos.create(first_name: "Melinda", alias: "", last_name: "Earhart", gender: "f", birth_year: 1899, birth_month: 10, birth_day: 10, birth_state: "Arkansas", mothers_first: "Cyndi", mothers_last: "Lauper", fathers_first: "Cy", fathers_last: "Lauper", last_year_seen: 1982, they_are_to_you: "mom", you_are_to_them: "uncle", reason_for_separation: "barfight")
