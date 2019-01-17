@@ -17,10 +17,11 @@ import SearchInfo1 from './components/SearchInfo1'
 import SearchInfo2 from './components/SearchInfo2'
 import SearchInfo3 from './components/SearchInfo3'
 import MatchedInfo from './components/MatchedInfo'
-import Clarification from './components/Clarification'
+import StartSearch from './components/StartSearch'
 import Closing from './components/Closing'
 import Exit from './components/Exit'
 import DisplayData from './components/DisplayData'
+import Clarification from './components/Clarification';
 
 class App extends Component {
   constructor(props) {
@@ -68,30 +69,41 @@ class App extends Component {
     }
   }
 
-  //  getData = () => {
-  //   axios.get("/api").then(response => {
-  //     console.log(response)
-  //     // this.setState({
-  //     //   locations: response.data.locations
-  //     // })
-  //   })
+
+  // get results from api
+  // save them in state
+  // display from state in clarification component
+
+   getResults = () => {
+    axios.get("/results").then(response => {
+      let resultData = response.data.results[0]
+      console.log(resultData)
+      // this.setState({
+      //   locations: response.data.locations
+      // })
+    })
     
-  // }
+  }
 
   
   saveUserChanges = (userChanges) => {
     this.setState({ user: update(this.state.user, { $merge: userChanges })})
   }
+  
 
   saveSearchChanges = (searchChanges) => {
     this.setState({ searchInfo: update(this.state.searchInfo, { $merge: searchChanges })})
+  }
+
+  saveResults = (resultData) => {
+    this.setState({ user: update(this.state.user, { $merge: resultData })})
   }
 
   render() {
 
     // {(props) => <Splash {...props} test={this.state.test}/>}
     // console.log(getData)
-    // this.getData()
+    this.getResults()
     return (
       <>
         <Router>
@@ -106,8 +118,8 @@ class App extends Component {
           <Route path="/search_info1" render={(props) => <SearchInfo1 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
           <Route path="/search_info2" render={(props) => <SearchInfo2 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
           <Route path="/search_info3" render={(props) => <SearchInfo3 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
-          <Route path="/matches" exact component={MatchedInfo} />
-          <Route path="/clarify" exact component={(props) => <Clarification {...props} results={this.state.results} />} />
+          <Route path="/matches" exact component={StartSearch} />
+          <Route path="/clarify" exact component={(props) => <Clarification {...props} getResults={this.getResults} />} />
           <Route path="/closing" component={Closing} />
           <Route path="/exit" component={Exit} />
           <Route path="/display" component={(props) => <DisplayData {...props} search={this.state.searchInfo} />} />
