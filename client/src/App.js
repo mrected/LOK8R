@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route} from 'react-router-dom'
+import { Router, Route} from 'react-router-dom'
 import axios from 'axios'
 
 import './Reset.css'
@@ -8,7 +8,7 @@ import './App.css'
 import update from 'immutability-helper'
 
 import Splash from './components/Splash'
-import Login from './components/LogIn'
+// import Login from './components/LogIn'
 import EnterInfoInstruction from './components/EnterInfoInstruction'
 import EnterInfo1 from './components/EnterInfo1'
 import EnterInfo2 from './components/EnterInfo2'
@@ -21,7 +21,11 @@ import StartSearch from './components/StartSearch'
 import Closing from './components/Closing'
 import Exit from './components/Exit'
 import DisplayData from './components/DisplayData'
-import Clarification from './components/Clarification';
+import Clarification from './components/Clarification'
+
+import auth from './auth'
+import history from './history'
+
 
 class App extends Component {
   constructor(props) {
@@ -106,11 +110,25 @@ class App extends Component {
     this.getResults()
     return (
       <>
-        <Router>
+        <Router history={history}>
           <>
           {/*https://xd.adobe.com/view/c029d25b-319f-4b3a-63b9-19ad7296cdf7-b618/*/}
           <Route path="/" exact component={Splash} />
-          <Route path="/login" component={Login} />
+
+          <Route path="/login" render={() => auth.login()} />
+          <Route path="/logout" render={() => auth.logout()} />
+
+          <Route path="/callback" render={() => {
+            auth.handleAuthentication(() => {
+              axios.defaults.headers.common = {
+                Authorization: auth.authorizationHeader()
+              }
+            })
+
+            return <></>
+          }}
+        />
+
           <Route path="/enter_info_instruction" component={EnterInfoInstruction} />
           <Route path="/enter_info1" render={(props) => <EnterInfo1 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} />
           <Route path="/enter_info2" render={(props) => <EnterInfo2 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} />
