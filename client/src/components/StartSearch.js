@@ -21,7 +21,7 @@ class MatchedInfo extends Component {
           </section>
           <footer>
             <nav className="footer-nav">
-              <Link to={`search_info3`} className="small-btn"> &lt;- back</Link>
+              <Link to={`search_info1`} className="small-btn"> &lt;- back</Link>
               
             </nav>
           </footer>

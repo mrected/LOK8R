@@ -21,7 +21,7 @@ class SearchInfoInstruction extends Component {
         </section>
         <footer>
           <nav className="footer-nav">
-            <Link to={`enter_info2`} className="small-btn"> &lt;- back</Link>
+            <Link to={`enter_info1`} className="small-btn"> &lt;- back</Link>
             <Link to={`search_info1`} className="small-btn">ok -&gt;</Link>
           </nav>
           </footer>

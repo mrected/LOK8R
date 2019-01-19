@@ -11,11 +11,11 @@ import Splash from './components/Splash'
 // import Login from './components/LogIn'
 import EnterInfoInstruction from './components/EnterInfoInstruction'
 import EnterInfo1 from './components/EnterInfo1'
-import EnterInfo2 from './components/EnterInfo2'
+// import EnterInfo2 from './components/EnterInfo2'
 import SearchInfoInstruction from './components/SearchInfoInstruction'
 import SearchInfo1 from './components/SearchInfo1'
-import SearchInfo2 from './components/SearchInfo2'
-import SearchInfo3 from './components/SearchInfo3'
+// import SearchInfo2 from './components/SearchInfo2'
+// import SearchInfo3 from './components/SearchInfo3'
 // import MatchedInfo from './components/MatchedInfo'
 import StartSearch from './components/StartSearch'
 import Closing from './components/Closing'
@@ -38,28 +38,15 @@ class App extends Component {
         last_name:"",
         gender:"",
         dob_month_year:"",
-        dob_day:"",
         state:"",
-        mothers_first:"",
-        mothers_last:"",
-        fathers_first:"",
-        fathers_last:"",
       },
       searchInfo : {
         first_name:"",
         alias:"",
         last_name:"",
         gender:"",
-        dob_day:"",
+        dob_month_year:"",
         state:"",
-        mothers_first:"",
-        mothers_last:"",
-        fathers_first:"",
-        fathers_last:"",
-        last_year_seen:"",
-        they_are_to_you:"",
-        you_are_to_them:"",
-        reason_for_separation:"",
       },
       results : {
 
@@ -131,11 +118,11 @@ class App extends Component {
 
           <Route path="/enter_info_instruction" component={EnterInfoInstruction} />
           <Route path="/enter_info1" render={(props) => <EnterInfo1 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} />
-          <Route path="/enter_info2" render={(props) => <EnterInfo2 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} />
+          {/* <Route path="/enter_info2" render={(props) => <EnterInfo2 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} /> */}
           <Route path="/search_info_instruction" component={SearchInfoInstruction} />
           <Route path="/search_info1" render={(props) => <SearchInfo1 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
-          <Route path="/search_info2" render={(props) => <SearchInfo2 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
-          <Route path="/search_info3" render={(props) => <SearchInfo3 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
+          {/* <Route path="/search_info2" render={(props) => <SearchInfo2 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} /> */}
+          {/* <Route path="/search_info3" render={(props) => <SearchInfo3 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} /> */}
           <Route path="/matches" exact component={StartSearch} />
           <Route path="/clarify" exact component={(props) => <Clarification {...props} results={this.state.results} />} />
           <Route path="/closing" component={Closing} />
