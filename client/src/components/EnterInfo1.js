@@ -36,16 +36,18 @@ class EnterInfo1 extends Component {
             <div><label htmlFor="first_name">first name: </label><input type="text" name="first_name" size="20" defaultValue={this.props.user.first_name} required /></div>
             <div><label htmlFor="alias">nickname/alias: </label><input type="text" name="alias" size="20" defaultValue={this.props.user.alias} required/></div>
             <div><label htmlFor="last_name">last name: </label><input type="text" name="last_name" size="20" defaultValue={this.props.user.last_name} required /></div>
-            <div className="gender-radio">
-              <label>gender: </label>
-              <label className="small-label" htmlFor="m">male</label>
-              <input type="radio" name="gender" value="m" id="m" checked={this.props.user.gender === "m"} ></input>
-              <label className="small-label" htmlFor="f">female</label>
-              <input type="radio" name="gender" value="f" id="f" checked={this.props.user.gender === "f"} ></input><br />
-            </div>
+            <label htmlFor="gender">gender: </label>
+            <select id="gender" selected={this.props.user.gender}  >
+              <option value="gender">- choose one -</option>
+              <option value="m" selected={this.props.user.gender === "m"}>male</option>
+              <option value="f" selected={this.props.user.gender === "f"}>female</option>
+            </select>
+
             <div>
-              <label htmlFor="dob_year_month_year">dob <br /> <span className="small-label">month/year: </span></label><input id="dob_year_month_year" type="month" name="dob_month_year"  defaultValue={this.props.user.dob_year_month} />
-              <label htmlFor="dob_day"> <span className="small-label"><br />day: </span></label><input id="dob_day" type="number" min="1" max="31"  defaultValue={this.props.user.dob_day.value} />
+              <label htmlFor="dob_year_month_year">dob <br /> <span className="small-label">month/year: </span></label>
+              <input id="dob_year_month_year" type="month" name="dob_month_year"  defaultValue={this.props.user.dob_year_month} />
+              <label htmlFor="dob_day"> <span className="small-label"><br />day: </span></label>
+              <input id="dob_day" type="number" min="1" max="31"  defaultValue={this.props.user.dob_day.value} />
             </div>
             </form>
           </section>

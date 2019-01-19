@@ -35,13 +35,11 @@ class SearchInfo1 extends Component {
               <div><label>their first name: </label><input type="text" name="first_name" size="20" defaultValue={this.props.searchInfo.first_name}  /></div>
               <div><label>nickname/alias: </label><input type="text" name="nickname" size="20" defaultValue={this.props.searchInfo.nickname}  /></div>
               <div><label>their last name: </label><input type="text" name="last_name" size="20" defaultValue={this.props.searchInfo.last_name}  /></div>
-              <div className="gender-radio">
-                <label>their gender: </label>
-                <label className="small-label" for="m">male</label>
-                <input type="radio" name="gender" value="m" id="m" defaultValue={this.props.searchInfo.gender} checked={this.props.searchInfo.gender === "m"} ></input>
-                <label className="small-label" for="f">female</label>
-                <input type="radio" name="gender" value="f" id="f" defaultValue={this.props.searchInfo.gender} checked={this.props.searchInfo.gender === "f"} ></input>
-              </div>
+              <select id="gender" selected={this.props.searchInfo.gender}  >
+                <option value="gender">- choose one -</option>
+                <option value="m" selected={this.props.searchInfo.gender === "m"}>male</option>
+                <option value="f" selected={this.props.searchInfo.gender === "f"}>female</option>
+              </select>
               <div>
                 <label htmlFor="dob_month_year">dob <br /> month/year: </label><input id="dob_month_year" type="month" name="search-dob"  defaultValue={this.props.searchInfo.dob_month_year}/>
                 <label htmlFor="dob_day"> day: </label><input id="dob_day" type="number" min="1" max="31" defaultValue={this.props.searchInfo.dob_day.value} />

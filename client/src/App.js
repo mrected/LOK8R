@@ -62,13 +62,7 @@ class App extends Component {
         reason_for_separation:"",
       },
       results : {
-        first_name:"selma",
-        alias:"",
-        last_name:"hayek",
-        gender:"f",
-        birth_year:1972,
-        birth_month:3,
-        birth_state:"nm",
+
       }
     }
   }
@@ -78,16 +72,22 @@ class App extends Component {
   // save them in state
   // display from state in clarification component
 
-   getResults = () => {
-    axios.get("/results").then(response => {
-      let resultData = response.data.results[0]
-      console.log(`results: ${resultData}`)
-      this.setState({
-        locations: response.data.locations
-      })
+
+  componentDidMount(){
+    axios.get('/results').then(response => {
+      this.setState({results: response.data.results[0]})
     })
-    
   }
+  //  getResults = () => {
+  //   axios.get("/results").then(response => {
+  //     let resultData = response.data.results[0]
+  //     console.log(`results: ${resultData}`)
+  //     this.setState({
+  //       locations: response.data.locations
+  //     })
+  //   })
+    
+  // }
 
   
   saveUserChanges = (userChanges) => {
@@ -137,7 +137,7 @@ class App extends Component {
           <Route path="/search_info2" render={(props) => <SearchInfo2 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
           <Route path="/search_info3" render={(props) => <SearchInfo3 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
           <Route path="/matches" exact component={StartSearch} />
-          <Route path="/clarify" exact component={(props) => <Clarification {...props} getResults={this.getResults} />} />
+          <Route path="/clarify" exact component={(props) => <Clarification {...props} results={this.state.results} />} />
           <Route path="/closing" component={Closing} />
           <Route path="/exit" component={Exit} />
           <Route path="/display" component={(props) => <DisplayData {...props} search={this.state.results} />} />
