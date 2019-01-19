@@ -19,7 +19,7 @@ class DisplayData extends Component {
 
 
 
-        <li>{this.props.searchInfo.first_name}</li>
+        <li>{this.props.search.first_name}</li>
         <li>{this.props.search.alias}</li>
         <li>{this.props.search.last_name}</li>
         <li>{this.props.search.gender}</li>

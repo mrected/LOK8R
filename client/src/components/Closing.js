@@ -16,7 +16,7 @@ class Closing extends Component {
           </section>
           <footer>
             <nav className="footer-nav">
-              <Link to={`/`} className="small-btn"> close </Link>
+              <Link to={`/logout`} className="small-btn"> close </Link>
             </nav>
           </footer>
         </div>

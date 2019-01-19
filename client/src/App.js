@@ -16,7 +16,7 @@ import SearchInfoInstruction from './components/SearchInfoInstruction'
 import SearchInfo1 from './components/SearchInfo1'
 import SearchInfo2 from './components/SearchInfo2'
 import SearchInfo3 from './components/SearchInfo3'
-import MatchedInfo from './components/MatchedInfo'
+// import MatchedInfo from './components/MatchedInfo'
 import StartSearch from './components/StartSearch'
 import Closing from './components/Closing'
 import Exit from './components/Exit'
@@ -81,10 +81,10 @@ class App extends Component {
    getResults = () => {
     axios.get("/results").then(response => {
       let resultData = response.data.results[0]
-      console.log(resultData)
-      // this.setState({
-      //   locations: response.data.locations
-      // })
+      console.log(`results: ${resultData}`)
+      this.setState({
+        locations: response.data.locations
+      })
     })
     
   }
@@ -107,7 +107,7 @@ class App extends Component {
 
     // {(props) => <Splash {...props} test={this.state.test}/>}
     // console.log(getData)
-    this.getResults()
+    // this.getResults()
     return (
       <>
         <Router history={history}>
@@ -140,7 +140,7 @@ class App extends Component {
           <Route path="/clarify" exact component={(props) => <Clarification {...props} getResults={this.getResults} />} />
           <Route path="/closing" component={Closing} />
           <Route path="/exit" component={Exit} />
-          <Route path="/display" component={(props) => <DisplayData {...props} search={this.state.searchInfo} />} />
+          <Route path="/display" component={(props) => <DisplayData {...props} search={this.state.results} />} />
           </>
         </Router>
       </>

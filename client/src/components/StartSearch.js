@@ -17,12 +17,12 @@ class MatchedInfo extends Component {
             </Link>
 
             
-            <p>select one to verify more info</p>
+            <p>or go back to change something</p>
           </section>
           <footer>
             <nav className="footer-nav">
               <Link to={`search_info3`} className="small-btn"> &lt;- back</Link>
-              <Link to={`clarify`} className="small-btn">next -&gt;</Link>
+              
             </nav>
           </footer>
         </div>
