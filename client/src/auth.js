@@ -32,7 +32,7 @@ class Auth {
     localStorage.removeItem('id_token')
     localStorage.removeItem('expires_at')
     // navigate to the home route
-    history.replace('/')
+    history.replace('/splash')
   }
 
   handleAuthentication(callback) {
@@ -44,9 +44,9 @@ class Auth {
           callback()
         }
 
-        history.replace('/')
+        history.replace('/enter_info_instruction')
       } else if (err) {
-        history.replace('/')
+        history.replace('/Splash')
         console.log(err)
       }
     })

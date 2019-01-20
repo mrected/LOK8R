@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+
+import auth from '../auth'
+import history from '../history'
+
 import logo from '../images/main-logo.svg'
 
 class EnterInfo1 extends Component {
@@ -20,8 +24,15 @@ class EnterInfo1 extends Component {
 
     this.props.saveUserChanges(userChanges)
 
+
     // Go to the next page
     event.target.id === "forward" ? this.props.history.push('/search_info_instruction') : this.props.history.push('/enter_info_instruction')
+  }
+
+  componentWillMount() {
+    if(!auth.isAuthenticated()){
+      history.replace('./Splash')
+    }
   }
 
   render() {

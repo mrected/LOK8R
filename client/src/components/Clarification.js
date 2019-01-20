@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
 import { Link} from 'react-router-dom'
+
+import auth from '../auth'
+import history from '../history'
+
 import logo from '../images/main-logo.svg'
 
 class Clarification extends Component {
 
-  
+  componentWillMount() {
+    if(!auth.isAuthenticated()){
+      history.replace('./Splash')
+    }
+  }
 
   render() {
 

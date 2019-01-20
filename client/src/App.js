@@ -91,19 +91,25 @@ class App extends Component {
   }
 
   render() {
-
+    let authenticated = auth.isAuthenticated()
     // {(props) => <Splash {...props} test={this.state.test}/>}
     // console.log(getData)
     // this.getResults()
     return (
+      
       <>
+      <p>logout</p>
         <Router history={history}>
           <>
           {/*https://xd.adobe.com/view/c029d25b-319f-4b3a-63b9-19ad7296cdf7-b618/*/}
           <Route path="/" exact component={Splash} />
 
           <Route path="/login" render={() => auth.login()} />
-          <Route path="/logout" render={() => auth.logout()} />
+          <Route path="/logout" render={() => {
+            auth.logout()
+            
+            return <></>
+          }} />
 
           <Route path="/callback" render={() => {
             auth.handleAuthentication(() => {

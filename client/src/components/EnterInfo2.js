@@ -4,6 +4,12 @@ import logo from '../images/main-logo.svg'
 
 class EnterInfo2 extends Component {
 
+  componentWillMount() {
+    if(!auth.isAuthenticated()){
+      history.replace('./Splash')
+    }
+  }
+
   _save = (event) => {
     event.preventDefault()
 

@@ -1,7 +1,17 @@
 import React, { Component } from 'react'
+
+import auth from '../auth'
+import history from '../history'
+
 import logo from '../images/main-logo.svg'
 
 class SearchInfo1 extends Component {
+
+  componentWillMount() {
+    if(!auth.isAuthenticated()){
+      history.replace('./Splash')
+    }
+  }
 
   _save = (event) => {
     event.preventDefault()
