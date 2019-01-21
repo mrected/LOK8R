@@ -1,11 +1,14 @@
 class UserInfoController < ApplicationController
+
+
     def index
         user_info = UserInfo.all
 
         render json: {
             user: UserInfo.all.map do |data|
                 {
-                    id: data.account.id,
+                    id: data.id,
+                    account_id: data.account.id,
                     email: data.account.email,
                     first_name: data.first_name,
                     alias: data.alias,
@@ -23,7 +26,8 @@ class UserInfoController < ApplicationController
             end,
             search: SearchInfo.all.map do |data|
                 {
-                    id: data.account.id,
+                    id: data.id,
+                    account_id: data.account.id,
                     email: data.account.email,
                     first_name: data.first_name,
                     alias: data.alias,

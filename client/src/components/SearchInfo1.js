@@ -30,7 +30,7 @@ class SearchInfo1 extends Component {
     this.props.saveSearchChanges(searchChanges)
 
     // Go to the next page
-    event.target.id === "forward" ? this.props.history.push('/matches') : this.props.history.push('/search_info_instruction')
+    event.target.id === "forward" ? this.props.history.push('/start_search') : this.props.history.push('/search_info_instruction')
   }
 
   render() {

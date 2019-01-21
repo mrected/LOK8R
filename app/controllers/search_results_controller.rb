@@ -17,10 +17,14 @@ class SearchResultsController < ApplicationController
 
 
     def index
-            user_id = 5
-        
-            my_search_info = SearchInfo.find_by(account_id: user_id)
-            my_user_info = UserInfo.find_by(account_id: user_id)
+            # user_id = current_account.id
+            # my_search_info = SearchInfo.find_by(account_id: user_id)
+            # my_user_info = UserInfo.find_by(account_id: user_id)
+
+            current_account = Account.find(5)
+            my_search_info = current_account.search_infos.first
+            my_user_info = current_account.user_infos.first
+
 
             # array of all the user info
             all_user_info = UserInfo.all
