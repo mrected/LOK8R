@@ -3,14 +3,17 @@ class SearchResultsController < ApplicationController
 
 
     def match(user_info, search_info)
-        [
-            user_info.first_name == search_info.first_name,
-            user_info.last_name == search_info.last_name,
-            user_info.alias == search_info.alias,
+        Rails.logger.debug [user_info, search_info]
+        m = [
+            user_info.first_name&.downcase == search_info.first_name&.downcase,
+            user_info.last_name&.downcase == search_info.last_name&.downcase,
+            user_info.alias&.downcase == search_info.alias&.downcase,
             user_info.dob_month_year == search_info.dob_month_year,
             user_info.birth_state == search_info.birth_state,
 
-        ].count(true) >= 2
+        ]
+        Rails.logger.debug m
+        m.count(true) >= 2
         
     end
 
