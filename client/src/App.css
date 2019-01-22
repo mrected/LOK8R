@@ -16,6 +16,14 @@ body {
   background-color: var(--main-bg-color);
 }
 
+p, li, label, input{
+  font-size: 1.1rem;
+}
+
+label{
+  display: inline;
+}
+
 h1{
   font-size: 1.5rem;
 }
@@ -51,7 +59,7 @@ section{
 }
 
 .big-btn{
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   margin-top: 50px;
   padding: 15px;
   border: solid 2px var(--white);
@@ -65,7 +73,7 @@ section{
 } 
 
 .small-btn{
-  font-size: .85rem;
+  font-size: 1rem;
   margin: 5px;
   padding: 10px 7px;
   border: solid 1px var(--white);
@@ -131,7 +139,6 @@ footer p {
   justify-content: space-between;
   font-family: var(--sans-serif-font);
   color: var(--white);
-  font-size: .85rem;
   line-height: 2;
 }
 
@@ -170,7 +177,6 @@ footer p {
   justify-content: space-between;
   font-family: var(--sans-serif-font);
   color: var(--white);
-  font-size: .85rem;
   line-height: 2;
 }
 
@@ -210,6 +216,7 @@ form{
 
 #user-dob, #state{
   border:0;
+  width: 100px;
 }
 
 .enter-info .small-label{
@@ -237,13 +244,11 @@ form{
   justify-content: space-between;
   font-family: var(--sans-serif-font);
   color: var(--white);
-  font-size: .85rem;
   line-height: 2;
   padding-bottom: 10px;
 }
 
 .matches .big-btn {
-  font-size: 1.25rem;
   text-align: center;
   padding: 10px;
   margin:0;
@@ -262,12 +267,10 @@ form{
   justify-content: space-between;
   font-family: var(--sans-serif-font);
   color: var(--white);
-  font-size: .85rem;
   line-height: 2;
 }
 
 .clarification li{
-  font-size: 1rem;
 }
 
 .clarification .data{
@@ -283,12 +286,10 @@ form{
   justify-content: space-between;
   font-family: var(--sans-serif-font);
   color: var(--white);
-  font-size: .85rem;
   line-height: 2;
 }
 
 .closing p{
   padding: 0 20px;
-  font-size: .85rem;
   line-height: 1.5;
 }

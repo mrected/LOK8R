@@ -21,27 +21,39 @@ class Clarification extends Component {
     } else {
       axios.get('/results').then(response => {
         this.setState({ results: response.data.results })
+        console.log(this.state.results[0])
       })
     }
   }
 
+
   showResults = () => {
     if (this.state.results.length === 0) {
-      return <p>NO MATCHES</p>
+      return (
+        <>
+            <p>
+                unfortunately, there's no matches at this time.<br />
+                either the person you're looking for hasn't entered their info yet or<br />
+                you may have entered something incorrectly.
+            </p>
+            <p>
+              you can either go back or check your information of logout and try your search later
+            </p>
+        </>
+            )
     } else {
       return (
-        this.state.results.map(result => (
           <ul>
-            <li>first name: <span className="data">{result.user_first}</span></li>
-            <li>nickname: <span className="data">{result.user_alias}</span></li>
-            <li>last name: <span className="data">{result.user_last}</span></li>
-            <li>gender: <span className="data">{result.user_gender}</span></li>
-            <li>born: <span className="data">{result.user_birth_year}</span></li>
-            <li>birth state: <span className="data">{result.user_birth_state}</span></li>
+            <li>first name: <span className="data">{this.state.results[0].user_first}</span></li>
+            <li>nickname: <span className="data">{this.state.results[0].user_alias}</span></li>
+            <li>last name: <span className="data">{this.state.results[0].user_last}</span></li>
+            <li>gender: <span className="data">{this.state.results[0].user_gender}</span></li>
+            <li>born: <span className="data">{this.state.results[0].user_dob_month_year}</span></li>
+            <li>birth state: <span className="data">{this.state.results[0].user_birth_state}</span></li>
           </ul>
          )
-        )
-      )
+        
+      
     }
   }
   
@@ -60,7 +72,7 @@ class Clarification extends Component {
         </section>
         <footer>
           <nav className="footer-nav">
-            <Link to={`matches`} className="small-btn"> &lt;- back</Link>
+            <Link to={`start_search`} className="small-btn"> &lt;- back</Link>
             <Link to={`closing`} className="small-btn">yes -&gt;</Link>
           </nav>
           </footer>

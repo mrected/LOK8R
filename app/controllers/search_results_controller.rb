@@ -25,8 +25,8 @@ class SearchResultsController < ApplicationController
         my_user_info = current_account.user_infos.first
 
 
-        # array of all the user info
-        all_user_info = UserInfo.all
+        # array of all the user info (except me)
+        all_user_info = UserInfo.all.where.not(id: user_id)
 
         # All user infos that match me.
         matches = all_user_info.select { |user_info| match(user_info, my_search_info ) }

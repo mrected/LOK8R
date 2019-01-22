@@ -44,6 +44,7 @@ class SearchInfo1 extends Component {
               <div><label>their first name: </label><input type="text" name="first_name" size="20" defaultValue={this.props.searchInfo.first_name}  /></div>
               <div><label>nickname/alias: </label><input type="text" name="nickname" size="20" defaultValue={this.props.searchInfo.nickname}  /></div>
               <div><label>their last name: </label><input type="text" name="last_name" size="20" defaultValue={this.props.searchInfo.last_name}  /></div>
+              <label htmlFor="gender">gender: </label>
               <select id="gender" selected={this.props.searchInfo.gender}  >
                 <option value="gender">- choose one -</option>
                 <option value="m" selected={this.props.searchInfo.gender === "m"}>male</option>
