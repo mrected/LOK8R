@@ -32,7 +32,7 @@ class App extends Component {
     super(props)
     this.state = {
       user: {
-        email:"test_acct",
+        email:"",
         first_name:"",
         alias:"",
         last_name:"",
@@ -47,23 +47,16 @@ class App extends Component {
         gender:"",
         dob_month_year:"",
         state:"",
-      },
-      results : {
-
       }
     }
   }
 
-  
-
-  componentDidMount(){
-    axios.get('/results',{},{
-      headers: {
+  componentWillMount(){
+    if (auth.isAuthenticated()) {
+      axios.defaults.headers.common = {
         Authorization: auth.authorizationHeader()
       }
-    }).then(response => {
-      this.setState({results: response.data.results[0]})
-    })
+    }
   }
 
   
@@ -83,7 +76,7 @@ class App extends Component {
   
 
   render() {
-    console.log(auth)
+    // console.log(auth)
     // {(props) => <Splash {...props} test={this.state.test}/>}
     // console.log(getData)
     // this.getResults()
@@ -94,7 +87,6 @@ class App extends Component {
       
         <Router history={history}>
           <>
-          {/*https://xd.adobe.com/view/c029d25b-319f-4b3a-63b9-19ad7296cdf7-b618/*/}
           <Route path="/" exact component={Splash} />
 
           <Route path="/login" render={() => auth.login({
@@ -117,14 +109,14 @@ class App extends Component {
           }}
         />
 
-          <Route path="/enter_info_instruction" component={EnterInfoInstruction} />
+          <Route path="/enter_info_instruction" render={(props) => <EnterInfoInstruction {...props} saveUserChanges={this.saveUserChanges} saveSearchChanges={this.saveSearchChanges}/>} />
           <Route path="/enter_info1" render={(props) => <EnterInfo1 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} />
           {/* <Route path="/enter_info2" render={(props) => <EnterInfo2 {...props} user={this.state.user} saveUserChanges={this.saveUserChanges}/>} /> */}
           <Route path="/search_info_instruction" component={SearchInfoInstruction} />
           <Route path="/search_info1" render={(props) => <SearchInfo1 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} />
           {/* <Route path="/search_info2" render={(props) => <SearchInfo2 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} /> */}
           {/* <Route path="/search_info3" render={(props) => <SearchInfo3 {...props} searchInfo={this.state.searchInfo} saveSearchChanges={this.saveSearchChanges}/>} /> */}
-          <Route path="/start_search" render={(props) => <StartSearch {...props} searchInfo={this.state.searchInfo} userInfo={this.state.user}/>} /> />
+          <Route path="/start_search" render={(props) => <StartSearch {...props} results={this.state.results} searchInfo={this.state.searchInfo} userInfo={this.state.user}/>} /> />
           <Route path="/clarify" exact component={(props) => <Clarification {...props} results={this.state.results} />} />
           <Route path="/closing" component={Closing} />
           <Route path="/exit" component={Exit} />

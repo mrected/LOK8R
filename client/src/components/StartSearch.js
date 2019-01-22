@@ -34,13 +34,11 @@ class MatchedInfo extends Component {
     //   dob_month_year:this.props.searchInfo.dob_month_year,
     //   state:this.props.searchInfo.state,
     // }
-    
+    // console.log(this.props.userInfo)
     axios.post('/account', { userInfo: this.props.userInfo, searchInfo: this.props.searchInfo }).then(response => {
-      axios.get('/results').then(response => {
-        // do something with the results
-      })
+      history.replace('/clarify')
+      
     })
-    
   }
   
   render() {
@@ -53,7 +51,7 @@ class MatchedInfo extends Component {
             <p>All of your info is entered 
                 <br /> click the button below to start searching</p>
 
-            <a href="#" onClick={this._sendData}>
+            <a href="#" className="big-btn" onClick={this._sendData}>
               start searching
             </a>
 

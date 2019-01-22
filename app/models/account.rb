@@ -20,7 +20,7 @@ class Account < ApplicationRecord
           # end
       
           # This code would store their email address
-          p ["this is the profile", profile]
+          # p ["this is the profile", profile]
           account.email = payload["email"]
           # account.name = payload["name"]
         end

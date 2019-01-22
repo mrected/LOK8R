@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_21_194103) do
+ActiveRecord::Schema.define(version: 2019_01_22_144757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +27,6 @@ ActiveRecord::Schema.define(version: 2019_01_21_194103) do
     t.string "alias"
     t.string "last_name"
     t.string "gender"
-    t.integer "birth_year"
-    t.integer "birth_month"
-    t.integer "birth_day"
     t.string "birth_state"
     t.string "mothers_first"
     t.string "mothers_last"
@@ -42,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_01_21_194103) do
     t.bigint "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "dob_month_year"
     t.index ["account_id"], name: "index_search_infos_on_account_id"
   end
 
@@ -50,9 +48,6 @@ ActiveRecord::Schema.define(version: 2019_01_21_194103) do
     t.string "alias"
     t.string "last_name"
     t.string "gender"
-    t.integer "birth_year"
-    t.integer "birth_month"
-    t.integer "birth_day"
     t.string "birth_state"
     t.string "mothers_first"
     t.string "mothers_last"
@@ -61,6 +56,7 @@ ActiveRecord::Schema.define(version: 2019_01_21_194103) do
     t.bigint "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "dob_month_year"
     t.index ["account_id"], name: "index_user_infos_on_account_id"
   end
 

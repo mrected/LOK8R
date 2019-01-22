@@ -17,13 +17,13 @@ Account.create(email: "test1@gmail.com")
 
 account = Account.find(2)
 
-Account.find(1).user_infos.update(first_name: "James", alias: "Jimmy", last_name: "Hoffa", gender: "m", birth_year: 1913, birth_month: 2, birth_day: 14, birth_state: "Indiana", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe") 
+Account.find(1).user_infos.create(first_name: "James", alias: "Jimmy", last_name: "Hoffa", gender: "m", birth_year_month: 1913, birth_month: 2, birth_day: 14, birth_state: "Indiana") 
 
-Account.find(2).user_infos.update(first_name: "Amelia", alias: "", last_name: "Earhart", gender: "f", birth_year: 1897, birth_month: 7, birth_day: 24, birth_state: "Kansas", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe") 
+Account.find(2).user_infos.create(first_name: "Amelia", alias: "", last_name: "Earhart", gender: "f", birth_year: 1897, birth_month: 7, birth_day: 24, birth_state: "Kansas", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe") 
 
-Account.find(2).search_infos.update(first_name: "James", alias: "Jimmy", last_name: "Hoffa", gender: "m", birth_year: 1913, birth_month: 2, birth_day: 14, birth_state: "Indiana", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe", last_year_seen: 1937, they_are_to_you: "brother", you_are_to_them: "sister", reason_for_separation: "unknown")
+Account.find(2).search_infos.create(first_name: "James", alias: "Jimmy", last_name: "Hoffa", gender: "m", birth_year: 1913, birth_month: 2, birth_day: 14, birth_state: "Indiana", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe", last_year_seen: 1937, they_are_to_you: "brother", you_are_to_them: "sister", reason_for_separation: "unknown")
 
-Account.find(1).search_infos.update(first_name: "Amelia", alias: "", last_name: "Earhart", gender: "f", birth_year: 1897, birth_month: 7, birth_day: 24, birth_state: "Kansas", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe", last_year_seen: 1937, they_are_to_you: "sister", you_are_to_them: "brother", reason_for_separation: "unknown")
+Account.find(1).search_infos.create(first_name: "Amelia", alias: "", last_name: "Earhart", gender: "f", birth_year: 1897, birth_month: 7, birth_day: 24, birth_state: "Kansas", mothers_first: "jane", mothers_last: "doe", fathers_first: "john", fathers_last: "doe", last_year_seen: 1937, they_are_to_you: "sister", you_are_to_them: "brother", reason_for_separation: "unknown")
 
 
 

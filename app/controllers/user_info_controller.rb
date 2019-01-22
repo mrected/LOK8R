@@ -2,52 +2,29 @@ class UserInfoController < ApplicationController
 
 
     def index
-        user_info = UserInfo.all
+        user_info = current_account.user_infos.first_or_initialize
+        search_info = current_account.search_infos.first_or_initialize
 
         render json: {
-            user: UserInfo.all.map do |data|
-                {
-                    id: data.id,
-                    account_id: data.account.id,
-                    email: data.account.email,
-                    first_name: data.first_name,
-                    alias: data.alias,
-                    last_name: data.last_name,
-                    gender: data.gender,
-                    birth_year: data.birth_year,
-                    birth_month: data.birth_month,
-                    birth_day: data.birth_day,
-                    birth_state: data.birth_state,
-                    mothers_first: data.mothers_first,
-                    mothers_last: data.mothers_last,
-                    fathers_first: data.fathers_first,
-                    fathers_last: data.fathers_last,
+            user: {
+                    id: user_info.id,
+                    email: current_account.email,
+                    first_name: user_info.first_name,
+                    alias: user_info.alias,
+                    last_name: user_info.last_name,
+                    gender: user_info.gender,
+                    dob_month_year: user_info.dob_month_year,
+                    birth_state: user_info.birth_state,
+                },
+            search: {
+                    id: search_info.id,
+                    first_name: search_info.first_name,
+                    alias: search_info.alias,
+                    last_name: search_info.last_name,
+                    gender: search_info.gender,
+                    dob_month_year: search_info.dob_month_year,
+                    birth_state: search_info.birth_state,
                 }
-            end,
-            search: SearchInfo.all.map do |data|
-                {
-                    id: data.id,
-                    account_id: data.account.id,
-                    email: data.account.email,
-                    first_name: data.first_name,
-                    alias: data.alias,
-                    last_name: data.last_name,
-                    gender: data.gender,
-                    birth_year: data.birth_year,
-                    birth_month: data.birth_month,
-                    birth_day: data.birth_day,
-                    birth_state: data.birth_state,
-                    mothers_first: data.mothers_first,
-                    mothers_last: data.mothers_last,
-                    fathers_first: data.fathers_first,
-                    fathers_last: data.fathers_last,
-                    last_year_seen:data.last_year_seen,
-                    they_are_to_you:data.they_are_to_you,
-                    you_are_to_them:data.you_are_to_them,
-                    reason_for_separation:data.reason_for_separation,
-                }
-            end
-            
         }
     end
 end

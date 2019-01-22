@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link} from 'react-router-dom'
+import axios from 'axios'
 
 import auth from '../auth'
 import history from '../history'
@@ -12,6 +13,12 @@ class EnterInfoInstruction extends Component {
     if(!auth.isAuthenticated()){
       history.replace('./Splash')
     }
+
+    axios.get('/user').then(response => {
+      this.props.saveUserChanges(response.data.user)
+      this.props.saveSearchChanges(response.data.search)
+    })
+
   }
   
   render() {
