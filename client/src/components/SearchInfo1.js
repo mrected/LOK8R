@@ -44,12 +44,14 @@ class SearchInfo1 extends Component {
               <div><label>their first name: </label><input type="text" name="first_name" size="20" defaultValue={this.props.searchInfo.first_name}  /></div>
               <div><label>nickname/alias: </label><input type="text" name="nickname" size="20" defaultValue={this.props.searchInfo.nickname}  /></div>
               <div><label>their last name: </label><input type="text" name="last_name" size="20" defaultValue={this.props.searchInfo.last_name}  /></div>
-              <label htmlFor="gender">gender: </label>
-              <select id="gender" selected={this.props.searchInfo.gender}  >
-                <option value="gender">- choose one -</option>
-                <option value="m" selected={this.props.searchInfo.gender === "m"}>male</option>
-                <option value="f" selected={this.props.searchInfo.gender === "f"}>female</option>
-              </select>
+              <div>
+                <label htmlFor="gender">gender: </label>
+                <select id="gender" selected={this.props.searchInfo.gender}  >
+                  <option value="gender">- choose one -</option>
+                  <option value="m" selected={this.props.searchInfo.gender === "m"}>male</option>
+                  <option value="f" selected={this.props.searchInfo.gender === "f"}>female</option>
+                </select>
+              </div>
               <div>
                 <label htmlFor="dob_month_year">dob <br /> month/year: </label>
                 <input id="dob_month_year" type="month" name="search-dob"  defaultValue={this.props.searchInfo.dob_month_year}/>

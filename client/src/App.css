@@ -16,7 +16,7 @@ body {
   background-color: var(--main-bg-color);
 }
 
-p, li, label, input{
+p, li, label, input, select {
   font-size: 1.1rem;
 }
 
@@ -107,7 +107,13 @@ footer p {
 }
 
 
+.email-link:active, .email-link:visited, .email-link:link{
+  color:var(--white);
+}
 
+.email-link:hover{
+  color:var(--accent-color-one);
+}
 
 
 
@@ -170,6 +176,10 @@ footer p {
 
 /* enter info --------------------------------------------------- */
 
+#gender{
+  width:100px
+}
+
 .enter-info {
   display: flex;
   flex-direction: column;
@@ -186,11 +196,10 @@ footer p {
 
 .enter-info input,
 .enter-info select {
-  background-color: transparent;
+  background-color: var(--accent-color-two);
   color: var(--white);
   text-align: center;
   border:0;
-  border-bottom: dashed var(--grey) 1px;
   border-radius: 0;
 }
 
@@ -292,4 +301,20 @@ form{
 .closing p{
   padding: 0 20px;
   line-height: 1.5;
+}
+
+@media(min-width: 600px) {
+
+  body{
+    background-color: var(--accent-color-two);
+  }
+
+  .container {
+    width: 600px;
+    margin: 0 auto;
+    border-left: 1px solid var(--accent-color-one);
+    border-right: 1px solid var(--accent-color-one);
+    background-color: var(--main-bg-color)
+  }
+  
 }

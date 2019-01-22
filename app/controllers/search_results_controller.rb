@@ -42,6 +42,7 @@ class SearchResultsController < ApplicationController
             results: users_with_two_way_matches.map do |user_info| 
                 {
                     id: user_info.id,
+                    email: user_info.account.email,
                     user_first: user_info.first_name,
                     user_alias: user_info.alias,
                     user_last: user_info.last_name,

@@ -56,15 +56,16 @@ class EnterInfo1 extends Component {
                 <label htmlFor="last_name">last name: </label>
                 <input type="text" name="last_name" size="20" defaultValue={this.props.user.last_name} required />
               </div>
-              <label htmlFor="gender">gender: </label>
-              <select id="gender" defaultValue={this.props.user.gender}  >
-                <option value="gender">- choose one -</option>
-                <option value="m" defaultValue={this.props.user.gender === "m"}>male</option>
-                <option value="f" selected={this.props.user.gender === "f"}>female</option>
-              </select>
-
               <div>
-                <label htmlFor="dob_month_year">dob <br /> <span className="small-label">month/year: </span></label>
+                <label htmlFor="gender">gender: </label>
+                <select id="gender" defaultValue={this.props.user.gender}  >
+                  <option value="gender">- choose one -</option>
+                  <option value="m" defaultValue={this.props.user.gender === "m"}>male</option>
+                  <option value="f" selected={this.props.user.gender === "f"}>female</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="dob_month_year">dob month/year: </label>
                 {/* <input id="dob_month_year" type="month" name="search-dob"  defaultValue={this.props.searchInfo.dob_month_year} /> */}
                 <input id="dob_month_year" type="month" name="user-dob"  defaultValue={this.props.user.dob_month_year} />
               </div>
@@ -85,7 +86,7 @@ class EnterInfo1 extends Component {
                   <option value="Hawaii" selected={this.props.user.state === "Hawaii"}>Hawaii</option>
                   <option value="Idaho" selected={this.props.user.state === "Idaho"}>Idaho</option>
                   <option value="Illinois" selected={this.props.user.state === "Illinois"}>Illinois</option>
-                  <option value="Indiana" selected={this.props.user.state === "Indiana"}>Ind</option>
+                  <option value="Indiana" selected={this.props.user.state === "Indiana"}>Indiana</option>
                   <option value="Iowa" selected={this.props.user.state === "Iowa"}>Iowa</option>
                   <option value="Kansas" selected={this.props.user.state === "Kansas"}>Kansas</option>
                   <option value="Kentucky" selected={this.props.user.state === "Kentucky"}>Kentucky</option>

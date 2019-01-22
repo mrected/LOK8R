@@ -43,6 +43,9 @@ class Clarification extends Component {
             )
     } else {
       return (
+       <>
+        <p>this is probably the person you're looking for</p>
+
           <ul>
             <li>first name: <span className="data">{this.state.results[0].user_first}</span></li>
             <li>nickname: <span className="data">{this.state.results[0].user_alias}</span></li>
@@ -51,6 +54,12 @@ class Clarification extends Component {
             <li>born: <span className="data">{this.state.results[0].user_dob_month_year}</span></li>
             <li>birth state: <span className="data">{this.state.results[0].user_birth_state}</span></li>
           </ul>
+
+          <p>
+            You can contact {this.state.results[0].user_gender === "f" ? "her" : "him"} at this email address: <br />
+            <a class="email-link" href={`mailto:${this.state.results[0].email}`}>{this.state.results[0].email}</a>
+          </p>
+        </>
          )
         
       
@@ -64,16 +73,13 @@ class Clarification extends Component {
         <div className="container">
         <section className="clarification">
         <img src={logo} className="main-logo" alt="logo" />
-        <p>this is probably the person you're looking for</p>
-        <p>these areas matched your search criteria:</p>
         {this.showResults()}
         
-        <p>do you think this is a match?</p>
         </section>
         <footer>
           <nav className="footer-nav">
             <Link to={`start_search`} className="small-btn"> &lt;- back</Link>
-            <Link to={`closing`} className="small-btn">yes -&gt;</Link>
+            <Link to={`logout`} className="small-btn">logout</Link>
           </nav>
           </footer>
         </div>
