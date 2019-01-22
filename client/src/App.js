@@ -88,6 +88,7 @@ class App extends Component {
         <Router history={history}>
           <>
           <Route path="/" exact component={Splash} />
+          <Route path="/splash" exact component={Splash} />
 
           <Route path="/login" render={() => auth.login({
             scope: 'openid email'

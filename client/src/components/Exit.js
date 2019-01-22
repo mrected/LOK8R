@@ -10,7 +10,7 @@ class Exit extends Component {
 
   componentWillMount() {
     if(!auth.isAuthenticated()){
-      history.replace('./Splash')
+      history.replace('./splash')
     }
   }
   
@@ -22,14 +22,16 @@ class Exit extends Component {
             <img src={logo} className="main-logo" alt="logo" />
             <h1>no problem</h1>
             <p>
-                It's a big step. Don't rush things. <br />Feel free to close the app and come back whenever you want to start searching again.
+                Feel free to close the app and come back<br /> whenever you want to start searching again.
             </p>
 
             <p>Close the app or click back</p>
+            
           </section>
           <footer>
             <nav className="footer-nav">
-              <Link to={`enter_info_instruction`} className="small-btn"> &lt;- back</Link>
+              <Link to={`logout`} className="small-btn">logout</Link>
+              <Link to={`enter_info_instruction`} className="small-btn">go back to enter your info</Link>
             </nav>
           </footer>
         </div>
