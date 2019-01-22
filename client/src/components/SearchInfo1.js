@@ -39,7 +39,7 @@ class SearchInfo1 extends Component {
         <div className="container">
           <section className="enter-info">
             <img src={logo} className="main-logo" alt="logo" />
-            <p>who you're looking for</p>
+            <p>enter who you're looking for</p>
             <form id="searchInfo">
               <div><label>their first name: </label><input type="text" name="first_name" size="20" defaultValue={this.props.searchInfo.first_name}  /></div>
               <div><label>nickname/alias: </label><input type="text" name="nickname" size="20" defaultValue={this.props.searchInfo.nickname}  /></div>
@@ -113,9 +113,9 @@ class SearchInfo1 extends Component {
                 </select>
               </div>
             </form>
+            <p className="page">page 4</p>
           </section>
           <footer>
-          <p className="page">page 1 - search info</p>
             <nav className="footer-nav">
               <a href="#" className="small-btn" onClick={this._save}> &lt;- back</a>
               <a href="#" id="forward" className="small-btn" onClick={this._save}>next -&gt;</a>

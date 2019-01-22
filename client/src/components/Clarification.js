@@ -59,6 +59,7 @@ class Clarification extends Component {
             You can contact {this.state.results[0].user_gender === "f" ? "her" : "him"} at this email address: <br />
             <a class="email-link" href={`mailto:${this.state.results[0].email}`}>{this.state.results[0].email}</a>
           </p>
+          <p>you can either logout or go back and change something if you think this isn't the right person</p>
         </>
          )
         

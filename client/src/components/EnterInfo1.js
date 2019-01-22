@@ -126,9 +126,9 @@ class EnterInfo1 extends Component {
                 </select>
               </div>
             </form>
+            <p className="page">page 2</p>
           </section>
           <footer>
-            {/* <p>page 1 - your info</p> */}
             <nav className="footer-nav">
               <a href="#" className="small-btn" onClick={this._save}> &lt;- back</a>
               <a href="#" id="forward" className="small-btn" onClick={this._save}>next -&gt;</a>

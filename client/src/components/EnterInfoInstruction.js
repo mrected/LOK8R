@@ -37,10 +37,11 @@ class EnterInfoInstruction extends Component {
         <p>
             Please fill out every field that applies to you.<br /> The more information you enter, the more accurate your search.
         </p>
+        <p className="page">page 1</p>
         </section>
 
         <footer>
-          {/* <p className="page">page 2 - your info</p> */}
+          
           <nav className="footer-nav">
             <Link to={`exit`} className="small-btn">not yet</Link>
             <Link to={`enter_info1`} className="small-btn">ok -&gt;</Link>
