@@ -13,7 +13,7 @@ class SearchResultsController < ApplicationController
 
         ]
         Rails.logger.debug m
-        m.count(true) >= 2
+        m.count(true) >= 3
         
     end
 
