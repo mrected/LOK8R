@@ -310,11 +310,24 @@ form{
   }
 
   .container {
-    width: 600px;
+    width: 700px;
     margin: 0 auto;
     border-left: 1px solid var(--accent-color-one);
     border-right: 1px solid var(--accent-color-one);
     background-color: var(--main-bg-color)
+  }
+
+  p, li, label, input, select {
+    font-size: 1.6rem;
+  }
+  
+  h1{
+    font-size: 2.75rem;
+    font-weight: bold;
+  }
+
+  #user-dob, #state, #gender{
+    width: 200px;
   }
   
 }

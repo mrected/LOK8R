@@ -11,7 +11,8 @@ class Clarification extends Component {
     super(props)
     
     this.state = {
-      results: []
+      results: [],
+      loading: false
     }
   }
 
@@ -21,7 +22,6 @@ class Clarification extends Component {
     } else {
       axios.get('/results').then(response => {
         this.setState({ results: response.data.results })
-        console.log(this.state.results[0])
       })
     }
   }

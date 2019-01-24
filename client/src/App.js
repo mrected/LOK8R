@@ -76,10 +76,6 @@ class App extends Component {
   
 
   render() {
-    // console.log(auth)
-    // {(props) => <Splash {...props} test={this.state.test}/>}
-    // console.log(getData)
-    // this.getResults()
 
     return (
       
