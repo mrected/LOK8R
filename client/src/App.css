@@ -303,7 +303,7 @@ form{
   line-height: 1.5;
 }
 
-@media(min-width: 600px) {
+@media(min-width: 700px) {
 
   body{
     background-color: var(--accent-color-two);
