@@ -32,19 +32,19 @@ class Clarification extends Component {
       return (
         <>
             <p>
-                unfortunately, there's no matches at this time.<br />
-                either the person you're looking for hasn't entered their info yet or<br />
+                Unfortunately, there's no matches at this time.
+                Either the person you're looking for hasn't entered their info yet or
                 you may have entered something incorrectly.
             </p>
             <p>
-              you can either go back or check your information of logout and try your search later
+              You can either go back or check your information or logout and try your search later
             </p>
         </>
             )
     } else {
       return (
        <>
-        <p>this is probably the person you're looking for</p>
+        <p>This is probably the person you're looking for</p>
 
           <ul>
             <li>first name: <span className="data">{this.state.results[0].user_first}</span></li>
@@ -59,7 +59,7 @@ class Clarification extends Component {
             You can contact {this.state.results[0].user_gender === "f" ? "her" : "him"} at this email address: <br />
             <a class="email-link" href={`mailto:${this.state.results[0].email}`}>{this.state.results[0].email}</a>
           </p>
-          <p>you can either logout or go back and change something if you think this isn't the right person</p>
+          <p>You can either logout or go back and change something if you think this isn't the right person</p>
         </>
          )
         

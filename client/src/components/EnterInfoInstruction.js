@@ -30,12 +30,12 @@ class EnterInfoInstruction extends Component {
         <img src={logo} className="main-logo" alt="logo" />
         <h1>enter your information</h1>
         <p>
-            On the next screen you'll enter your personal information.<br />
-            We'll use this information to search thru our database and compare 
+            On the next screen you'll enter your personal information.
+            This information is used to search thru the database and compare 
             it to other users search criteria to see if there's any matches.
         </p>
         <p>
-            Please fill out every field that applies to you.<br /> The more information you enter, the more accurate your search.
+            Please fill out every field that applies to you. The more information you enter, the more accurate your search.
         </p>
         <p className="page">page 1</p>
         </section>

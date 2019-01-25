@@ -176,9 +176,6 @@ footer p {
 
 /* enter info --------------------------------------------------- */
 
-#gender{
-  width:100px
-}
 
 .enter-info {
   display: flex;
@@ -225,7 +222,7 @@ form{
 
 #user-dob, #state{
   border:0;
-  width: 100px;
+  width: 150px;
 }
 
 .enter-info .small-label{

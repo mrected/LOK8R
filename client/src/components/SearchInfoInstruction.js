@@ -22,11 +22,10 @@ class SearchInfoInstruction extends Component {
         <img src={logo} className="main-logo" alt="logo" />
         <h1>their information</h1>
         <p>
-            On the next screen you'll enter information about the person you're looking for.<br />
-            We'll use this to help find them in our database.
+            On the next screen you'll enter information about the person you're looking for.
         </p>
         <p>
-            Fill out any field you can.<br /> 
+            Fill out any field you can.
             The more information you can provide the more likely you'll find them.
         </p>
         <p className="page">page 3</p>
